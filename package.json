@@ -33,6 +33,7 @@
     "import"
   ],
   "dependencies": {
+    "@babel/cli": "^7.0.0-rc.1",
     "find-babel-config": "^1.1.0",
     "glob": "^7.1.2",
     "pkg-up": "^2.0.0",
@@ -40,7 +41,6 @@
     "resolve": "^1.4.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-rc.1",
     "@babel/core": "^7.0.0-rc.1",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-rc.1",
     "@babel/preset-env": "^7.0.0-rc.1",
@@ -60,12 +60,12 @@
   },
   "scripts": {
     "lint": "eslint src test",
-    "compile": "babel src --out-dir lib",
+    "compile": "node_modules/.bin/babel src --out-dir lib",
     "pretest": "npm run lint",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
-    "prepublish": "npm run compile",
+    "install": "npm run compile",
     "release": "standard-version",
     "precommit": "lint-staged"
   },
